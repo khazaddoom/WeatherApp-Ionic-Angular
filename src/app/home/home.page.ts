@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation'
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  currentTemperature: number = 27;
+
+  constructor(private geolocation: Geolocation) {}
+
+  ngOnInit() {
+    this.geolocation.getCurrentPosition( (resp) => {
+      console.log(resp.coords.latitude, resp.coords.longitude);
+    }, err => {
+      console.error(err)
+    });
+  }
 
 }

@@ -1,5 +1,7 @@
 {
   "name": "LatestAndroid",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
